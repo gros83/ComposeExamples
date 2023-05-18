@@ -12,14 +12,15 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.grioaldoalvarez.mymovies.databinding.ActivityMainBinding
 import com.grioaldoalvarez.mymovies.ui.theme.MyMoviesTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        val message = findViewById<TextView>(R.id.message)
-        message.text =  "Hola Android"
+        val binding  = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        binding.message.text = "Hola Android con Binding"
         Log.d("MainActivity", "onCreate")
     }
 
