@@ -3,6 +3,7 @@ package com.grioaldoalvarez.mymovies
 import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
@@ -20,8 +21,12 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         val binding  = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.message.text = "Hola Android con Binding"
-        Log.d("MainActivity", "onCreate")
+        val button = binding.button2
+        button.setOnClickListener {
+            Log.d("MainActivity",binding.editTextText2.text.toString())
+            Toast.makeText( this,binding.editTextText2.text.toString(), Toast.LENGTH_LONG).show()
+        }
+
     }
 
     override fun onDestroy() {
