@@ -21,11 +21,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         val binding  = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.showButton.setOnClickListener {
-            val message = binding.message.text
-            Toast.makeText( this, message, Toast.LENGTH_LONG).show()
-        }
-
+        binding.recycler.adapter = MoviesAdapter()
     }
 
     override fun onDestroy() {
