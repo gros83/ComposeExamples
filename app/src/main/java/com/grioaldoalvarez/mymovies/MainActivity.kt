@@ -21,10 +21,9 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         val binding  = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val button = binding.button2
-        button.setOnClickListener {
-            Log.d("MainActivity",binding.editTextText2.text.toString())
-            Toast.makeText( this,binding.editTextText2.text.toString(), Toast.LENGTH_LONG).show()
+        binding.showButton.setOnClickListener {
+            val message = binding.message.text
+            Toast.makeText( this, message, Toast.LENGTH_LONG).show()
         }
 
     }
