@@ -29,7 +29,15 @@ class MainActivity : ComponentActivity() {
                 Movie("Title 4","https://loremflickr.com/320/240?lock=4"),
                 Movie("Title 5","https://loremflickr.com/320/240?lock=5"),
                 Movie("Title 6","https://loremflickr.com/320/240?lock=6")
-            )
+            ),
+            object :MovieClickedListener{
+                override fun onMovieClicked(movie: Movie) {
+                    Toast
+                        .makeText(this@MainActivity, movie.title, Toast.LENGTH_SHORT)
+                        .show()
+                }
+
+            }
         )
     }
 
