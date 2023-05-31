@@ -7,13 +7,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.grioaldoalvarez.mymovies.databinding.ViewMovieItemBinding
 
-interface MovieClickedListener {
-    fun onMovieClicked(movie: Movie)
-}
 class MoviesAdapter(
     private val movies: List<Movie>,
-    private val movieClickedListener: MovieClickedListener
-    ): RecyclerView.Adapter<MoviesAdapter.ViewHolder>() {
+    private val movieClickedListener: (Movie) -> Unit
+): RecyclerView.Adapter<MoviesAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ViewMovieItemBinding.inflate(
@@ -31,7 +28,7 @@ class MoviesAdapter(
         val movie = movies[position]
         holder.bind(movie)
         holder.itemView.setOnClickListener {
-            movieClickedListener.onMovieClicked(movie)
+            movieClickedListener(movie)
         }
     }
 
